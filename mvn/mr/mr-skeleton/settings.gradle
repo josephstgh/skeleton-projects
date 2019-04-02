@@ -1,0 +1,8 @@
+pluginManagement {
+	repositories {
+		maven {
+			url "${nexusUrl}/repository/mvn-group/"
+		}
+	}
+}
+rootProject.name = 'mr-skeleton'

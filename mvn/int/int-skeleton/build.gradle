@@ -1,0 +1,40 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.1.3.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.7.RELEASE'
+	id 'com.google.cloud.tools.jib' version '1.0.1'
+	id 'com.garyclayburg.dockerprepare' version '1.3.2'
+}
+
+group = 'ac.nexus'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+jib.to.image = 'kafka-service-template'
+jib.from.image = 'gcr.io/distroless/java:11-debug'
+jib.container.ports = ['8080/tcp']
+jib.container.useCurrentTimestamp = false
+
+repositories {
+	maven {
+		url "${nexusUrl}/repository/mvn-group/"
+	}
+}
+
+dependencies {
+	compileOnly 'org.projectlombok:lombok:1.18.6'
+	annotationProcessor 'org.projectlombok:lombok:1.18.6'
+	
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.kafka:spring-kafka'
+	implementation 'com.google.code.gson:gson:2.8.5'
+	
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.kafka:spring-kafka-test'
+}
