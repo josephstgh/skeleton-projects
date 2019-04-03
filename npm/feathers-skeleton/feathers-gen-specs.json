@@ -1,0 +1,90 @@
+{
+  "options": {
+    "ver": "1.0.0",
+    "inspectConflicts": false,
+    "semicolons": true,
+    "freeze": [],
+    "ts": true
+  },
+  "app": {
+    "environmentsAllowingSeedData": "",
+    "seedData": false,
+    "name": "feathers-skeleton",
+    "description": "Project feathers-skeleton",
+    "src": "src",
+    "packager": "npm@>= 3.0.0",
+    "providers": [
+      "rest",
+      "socketio"
+    ]
+  },
+  "services": {
+    "users": {
+      "name": "users",
+      "nameSingular": "user",
+      "subFolder": "",
+      "fileName": "users",
+      "adapter": "nedb",
+      "path": "/users",
+      "isAuthEntity": true,
+      "requiresAuth": true,
+      "graphql": true
+    },
+    "g1": {
+      "name": "g1",
+      "nameSingular": "g1",
+      "subFolder": "",
+      "fileName": "g1",
+      "adapter": "mongoose",
+      "path": "/g1",
+      "isAuthEntity": false,
+      "requiresAuth": false,
+      "graphql": true
+    }
+  },
+  "hooks": {
+    "h1": {
+      "fileName": "h1",
+      "camelName": "h1",
+      "ifMulti": "n",
+      "multiServices": [],
+      "singleService": "g1"
+    }
+  },
+  "authentication": {
+    "strategies": [
+      "local"
+    ],
+    "entity": "users"
+  },
+  "connections": {
+    "mongoose": {
+      "database": "mongodb",
+      "adapter": "mongoose",
+      "connectionString": "mongodb://localhost:27017/feathers_skeleton"
+    },
+    "mongodb": {
+      "database": "mongodb",
+      "adapter": "mongodb",
+      "connectionString": "mongodb://localhost:27017/feathers_skeleton"
+    },
+    "sequelize": {
+      "database": "postgres",
+      "adapter": "sequelize",
+      "connectionString": "postgres://postgres:@localhost:5432/feathers_skeleton"
+    },
+    "nedb": {
+      "database": "nedb",
+      "adapter": "nedb",
+      "connectionString": "nedb://../data"
+    }
+  },
+  "graphql": {
+    "path": "/graphql",
+    "strategy": "sql",
+    "sqlInterface": "sequelize",
+    "requiresAuth": false,
+    "doNotConfigure": false,
+    "name": "graphql"
+  }
+}
