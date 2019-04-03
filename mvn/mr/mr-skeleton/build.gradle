@@ -48,6 +48,17 @@ dependencies {
 	testCompile "org.testfx:testfx-core:4.0.15-alpha"
 	testCompile "org.testfx:testfx-junit5:4.0.15-alpha"
 	testRuntime "org.testfx:openjfx-monocle:jdk-11+26"
+
+	compile 'de.jensd:fontawesomefx-commons:11.0'
+    compile 'de.jensd:fontawesomefx-emojione:2.2.7-11'
+    compile 'de.jensd:fontawesomefx-fontawesome:4.7.0-11'
+    compile 'de.jensd:fontawesomefx-icons525:3.0.0-11'
+    compile 'de.jensd:fontawesomefx-materialdesignfont:1.7.22-11'
+    compile 'de.jensd:fontawesomefx-materialicons:2.2.0-11'
+    compile 'de.jensd:fontawesomefx-octicons:4.3.0-11'
+    compile 'de.jensd:fontawesomefx-materialstackicons:2.1-11'
+    compile 'de.jensd:fontawesomefx-weathericons:2.0.10-11'
+    compile 'de.jensd:fontawesomefx-controls:11.0'
 }
 
 javafx {
